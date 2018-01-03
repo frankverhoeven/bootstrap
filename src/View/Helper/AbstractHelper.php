@@ -503,7 +503,7 @@ abstract class AbstractHelper extends AbstractHtmlElement
     {
         $parts = explode('_', $name);
 
-        if (count($parts) > 3) {
+        if (count($parts) > 3 || count($parts) < 2) {
             throw new BadMethodCallException(sprintf('Invalid method "%s"', $name));
         }
 

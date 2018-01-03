@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace FrankVerhoeven\Bootstrap\View\Helper;
 
 use BadMethodCallException;
+use FrankVerhoeven\Bootstrap\View\Helper\Utility\AbstractUtility;
+use FrankVerhoeven\Bootstrap\View\Helper\Utility\Spacing;
+use FrankVerhoeven\Bootstrap\View\Helper\Utility\Text;
+use InvalidArgumentException;
 use Zend\View\Helper\AbstractHtmlElement;
 
 /**
@@ -12,7 +16,9 @@ use Zend\View\Helper\AbstractHtmlElement;
  *
  * @author Frank Verhoeven <hi@frankverhoeven.me>
  */
-abstract class AbstractHelper extends AbstractHtmlElement implements SpacingUtilityInterface, TextUtilityInterface
+abstract class AbstractHelper extends AbstractHtmlElement implements
+    Utility\SpacingInterface,
+    Utility\TextInterface
 {
     /**
      * Attributes for the element
@@ -76,112 +82,21 @@ abstract class AbstractHelper extends AbstractHtmlElement implements SpacingUtil
      */
     public function __call(string $name, array $arguments): AbstractHelper
     {
-        try {
-            $this->spacing($name);
-            return $this;
-        } catch (BadMethodCallException $e) {}
-        try {
-            $this->text($name);
-            return $this;
-        } catch (BadMethodCallException $e) {}
+        // @todo: MUST be pulled/injected from SM, currently destroys performance
+        $utilities = [
+            new Spacing(),
+            new Text(),
+        ];
 
-        throw $e;
-    }
-
-    /**
-     * Allow helper methods to set spacing.
-     *  @link http://getbootstrap.com/docs/4.0/utilities/spacing/
-     *
-     * @param string $class
-     * @return void
-     * @throws BadMethodCallException
-     */
-    protected function spacing(string $class): void
-    {
-        $allowed = ['mxAuto'];
-        $breakpoints = ['sm', 'md', 'lg', 'xl'];
-        $properties = ['p', 'm'];
-        $sides = ['t', 'b', 'l', 'r', 'x', 'y'];
-        $sizes = [0, 1, 2, 3, 4, 5];
-
-        foreach ($properties as $property) {
-            foreach ($sizes as $size) {
-                $allowed[] = $property . $size;
-
-                foreach ($breakpoints as $breakpoint) {
-                    $allowed[] = $property . ucfirst($breakpoint) . $size;
-                }
-
-                foreach ($sides as $side) {
-                    $allowed[] = $property . $side . $size;
-
-                    foreach ($breakpoints as $breakpoint) {
-                        $allowed[] = $property . $side . ucfirst($breakpoint) . $size;
-                    }
-                }
-            }
+        /* @var AbstractUtility $utility */
+        foreach ($utilities as $utility) {
+            try {
+                $class = $utility->process($name);
+                $this->addCssClass($class);
+                return $this;
+            } catch (InvalidArgumentException $e) {}
         }
 
-        if (!in_array($class, $allowed)) {
-            throw new BadMethodCallException(sprintf('Invalid method "%s"', $class));
-        }
-
-        $this->addCssClass($this->covertCamelCaseToCssClass($class));
-    }
-
-    /**
-     * Allow helper methods to set text utilities.
-     *  @link http://getbootstrap.com/docs/4.0/utilities/text/
-     *
-     * @param string $class
-     * @return void
-     * @throws BadMethodCallException
-     */
-    protected function text(string $class): void
-    {
-        $allowed = ['fontWeightBold', 'fontWeightNormal', 'fontWeightLight', 'fontItalic'];
-
-        $breakpoints = ['sm', 'md', 'lg', 'xl'];
-        $withBreakpoints = ['left', 'center', 'right'];
-        $withoutBreakpoints = ['justify', 'nowrap','truncate','lowercase', 'uppercase', 'capitalize'];
-
-        foreach ($withBreakpoints as $key) {
-            $allowed[] = 'text' . ucfirst($key);
-            foreach ($breakpoints as $breakpoint) {
-                $allowed[] = 'text' . ucfirst($breakpoint) . ucfirst($key);
-            }
-        }
-        foreach ($withoutBreakpoints as $key) {
-            $allowed[] = 'text' . ucfirst($key);
-        }
-
-        if (!in_array($class, $allowed)) {
-            throw new BadMethodCallException(sprintf('Invalid method "%s"', $class));
-        }
-
-        $this->addCssClass($this->covertCamelCaseToCssClass($class));
-    }
-
-    /**
-     * Convert a camal case string to a css class.
-     *  Eg. fontWeightBold -> font-weight-bold
-     *
-     * @param string $camel
-     * @param bool $includeNumeric
-     * @return string
-     */
-    protected function covertCamelCaseToCssClass(string $camel, bool $includeNumeric = true): string
-    {
-        $search = range('A', 'Z');
-        $replace = range('a', 'z');
-
-        if ($includeNumeric) {
-            $search = array_merge($search, range(0, 9));
-            $replace = array_merge($replace, range(0, 9));
-        }
-
-        $replace = array_map(function($v) {return '-' . $v;}, $replace);
-
-        return str_replace($search, $replace, $camel);
+        throw new BadMethodCallException($e->getMessage(), $e->getCode(), $e);
     }
 }

@@ -1,9 +1,11 @@
 <?php
 
-namespace FrankVerhoeven\Bootstrap\View\Helper;
+declare(strict_types=1);
+
+namespace FrankVerhoeven\Bootstrap\View\Helper\Utility;
 
 /**
- * SpacingUtilityInterface
+ * SpacingInterface
  *
  * @author Frank Verhoeven <hi@frankverhoeven.me>
  *
@@ -429,5 +431,5 @@ namespace FrankVerhoeven\Bootstrap\View\Helper;
  * @method self pyXl4()
  * @method self pyXl5()
  */
-interface SpacingUtilityInterface
+interface SpacingInterface
 {}

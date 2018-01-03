@@ -1,9 +1,11 @@
 <?php
 
-namespace FrankVerhoeven\Bootstrap\View\Helper;
+declare(strict_types=1);
+
+namespace FrankVerhoeven\Bootstrap\View\Helper\Utility;
 
 /**
- * TextUtilityInterface
+ * TextInterface
  *
  * @author Frank Verhoeven <hi@frankverhoeven.me>
  *
@@ -33,5 +35,5 @@ namespace FrankVerhoeven\Bootstrap\View\Helper;
  * @method self textUppercase()
  * @method self textCapitalize()
  */
-interface TextUtilityInterface
+interface TextInterface
 {}

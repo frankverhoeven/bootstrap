@@ -1,0 +1,30 @@
+{
+  "name": "frankverhoeven/bootstrap",
+  "description": "Bootstrap 4 View Helpers for Zend Framework",
+  "type": "project",
+  "keywords": [
+    "Bootstrap 4",
+    "View Helpers",
+    "Zend Framework"
+  ],
+  "homepage": "https://frankverhoeven.me/",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": "^7.1",
+    "zendframework/zend-modulemanager": "^2.7.1",
+    "zendframework/zend-view": "^2.6.7",
+    "zendframework/zend-servicemanager": "^3.3.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "FrankVerhoeven\\Bootstrap\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+    }
+  },
+  "extra": [],
+  "scripts": {}
+}

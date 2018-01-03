@@ -499,7 +499,7 @@ abstract class AbstractHelper extends AbstractHtmlElement
      * @return self
      * @throws BadMethodCallException
      */
-    public function __call(string $name, array $arguments): self
+    public function __call(string $name, array $arguments): AbstractHelper
     {
         $parts = explode('_', $name);
 

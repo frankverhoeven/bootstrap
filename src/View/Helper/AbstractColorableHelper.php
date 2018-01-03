@@ -80,13 +80,18 @@ abstract class AbstractColorableHelper extends AbstractHelper
      * @return self
      * @throws BadMethodCallException
      */
-    public function __call(string $name, array $arguments): self
+    public function __call(string $name, array $arguments): AbstractHelper
     {
-        if (!$this->isStandardColor($name)) {
-            throw new BadMethodCallException(sprintf('Undefined method "%s"', $name));
+        try {
+            parent::__call($name, $arguments);
+        } catch (BadMethodCallException $e) {
+            if (!$this->isStandardColor($name)) {
+                throw new BadMethodCallException(sprintf('Undefined method "%s"', $name));
+            }
+
+            $this->color = $name;
         }
 
-        $this->color = $name;
         return $this;
     }
 }

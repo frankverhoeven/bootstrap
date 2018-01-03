@@ -13,8 +13,8 @@ use Zend\View\Renderer\PhpRenderer as ZendPhpRenderer;
  *
  * @author Frank Verhoeven <hi@frankverhoeven.me>
  *
- * @method Alert bootstrapAlert(string $content, array $arguments = null)
- * @method DismissibleAlert bootstrapDismissibleAlert(string $content, array $arguments = null)
+ * @method Alert bootstrapAlert(string $content, array $attributes = null)
+ * @method DismissibleAlert bootstrapDismissibleAlert(string $content, array $attributes = null)
  */
 class PhpRenderer extends ZendPhpRenderer
 {}

@@ -76,10 +76,11 @@ abstract class AbstractColorableHelper extends AbstractHelper
      * Allow helper methods to set standard colors.
      *
      * @param string $name
+     * @param array $arguments
      * @return self
      * @throws BadMethodCallException
      */
-    public function __call(string $name): self
+    public function __call(string $name, array $arguments): self
     {
         if (!$this->isStandardColor($name)) {
             throw new BadMethodCallException(sprintf('Undefined method "%s"', $name));

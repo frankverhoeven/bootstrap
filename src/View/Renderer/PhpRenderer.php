@@ -1,5 +1,7 @@
 <?php
 
+namespace FrankVerhoeven\Bootstrap\Renderer;
+
 use FrankVerhoeven\Bootstrap\View\Helper\Alert;
 use FrankVerhoeven\Bootstrap\View\Helper\DismissibleAlert;
 use Zend\View\Renderer\PhpRenderer as ZendPhpRenderer;

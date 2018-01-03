@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace FrankVerhoeven\Bootstrap\View\Helper;
+namespace FrankVerhoeven\Bootstrap\View\Helper\Alert;
 
 /**
- * DismissibleAlert
+ * AlertDismissible
  *
  * @author Frank Verhoeven <hi@frankverhoeven.me>
  */
-class DismissibleAlert extends Alert
+class AlertDismissible extends Alert
 {
     /**
      * Whether the alert should be dismissible

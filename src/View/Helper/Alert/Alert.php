@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace FrankVerhoeven\Bootstrap\View\Helper;
+namespace FrankVerhoeven\Bootstrap\View\Helper\Alert;
+
+use FrankVerhoeven\Bootstrap\View\Helper\AbstractColorableHelper;
 
 /**
  * Alert

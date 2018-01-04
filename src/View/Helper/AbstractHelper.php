@@ -6,6 +6,7 @@ namespace FrankVerhoeven\Bootstrap\View\Helper;
 
 use BadMethodCallException;
 use FrankVerhoeven\Bootstrap\View\Helper\Utility\AbstractUtility;
+use FrankVerhoeven\Bootstrap\View\Helper\Utility\Floating;
 use FrankVerhoeven\Bootstrap\View\Helper\Utility\Spacing;
 use FrankVerhoeven\Bootstrap\View\Helper\Utility\Text;
 use InvalidArgumentException;
@@ -15,6 +16,22 @@ use Zend\View\Helper\AbstractHtmlElement;
  * AbstractHelper
  *
  * @author Frank Verhoeven <hi@frankverhoeven.me>
+ *
+ * @method self floatLeft()
+ * @method self floatSmLeft()
+ * @method self floatMdLeft()
+ * @method self floatLgLeft()
+ * @method self floatXlLeft()
+ * @method self floatRight()
+ * @method self floatSmRight()
+ * @method self floatMdRight()
+ * @method self floatLgRight()
+ * @method self floatXlRight()
+ * @method self floatNone()
+ * @method self floatSmNone()
+ * @method self floatMdNone()
+ * @method self floatLgNone()
+ * @method self floatXlNone()
  *
  * @method self m0()
  * @method self m1()
@@ -542,6 +559,7 @@ abstract class AbstractHelper extends AbstractHtmlElement
         $utilities = [
             new Spacing(),
             new Text(),
+            new Floating(),
         ];
 
         /* @var AbstractUtility $utility */

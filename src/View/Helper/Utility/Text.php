@@ -31,7 +31,10 @@ class Text extends AbstractUtility
         $this->validClasses = ['fontWeightBold', 'fontWeightNormal', 'fontWeightLight', 'fontItalic'];
 
         $withBreakpoints = ['left', 'center', 'right'];
-        $withoutBreakpoints = ['justify', 'nowrap','truncate','lowercase', 'uppercase', 'capitalize'];
+        $withoutBreakpoints = [
+            'justify', 'nowrap','truncate','lowercase', 'uppercase', 'capitalize',
+            'primary', 'secondary','success', 'danger', 'warning', 'info', 'light', 'dark', 'muted', 'white',
+        ];
 
         foreach ($withBreakpoints as $key) {
             $this->validClasses[] = 'text' . ucfirst($key);

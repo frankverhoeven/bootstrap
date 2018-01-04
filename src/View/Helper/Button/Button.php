@@ -41,7 +41,6 @@ use Zend\Form\ElementInterface;
  */
 class Button extends AbstractHelper
 {
-    const SIZE = 'small';
     /**
      * Button content
      * @var string

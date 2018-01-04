@@ -6,6 +6,9 @@ namespace FrankVerhoeven\Bootstrap;
 
 use FrankVerhoeven\Bootstrap\View\Helper\Alert\Alert;
 use FrankVerhoeven\Bootstrap\View\Helper\Alert\AlertDismissible;
+use FrankVerhoeven\Bootstrap\View\Helper\Button\Button;
+use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonLarge;
+use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonSmall;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlList;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListInline;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListOrdered;
@@ -31,6 +34,9 @@ class ConfigProvider
             'aliases' => [
                 'bootstrapAlert' => Alert::class,
                 'bootstrapAlertDismissible' => AlertDismissible::class,
+                'bootstrapButton' => Button::class,
+                'bootstrapButtonSmall' => ButtonSmall::class,
+                'bootstrapButtonLarge' => ButtonLarge::class,
                 'bootstrapList' => HtmlList::class,
                 'bootstrapListInline' => HtmlListInline::class,
                 'bootstrapListOrdered' => HtmlListOrdered::class,
@@ -40,6 +46,9 @@ class ConfigProvider
             'factories' => [
                 Alert::class => InvokableFactory::class,
                 AlertDismissible::class => InvokableFactory::class,
+                Button::class => InvokableFactory::class,
+                ButtonSmall::class => InvokableFactory::class,
+                ButtonLarge::class => InvokableFactory::class,
                 HtmlList::class => InvokableFactory::class,
                 HtmlListInline::class => InvokableFactory::class,
                 HtmlListOrdered::class => InvokableFactory::class,

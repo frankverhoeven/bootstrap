@@ -463,6 +463,16 @@ use Zend\View\Helper\AbstractHtmlElement;
  * @method self textLowercase()
  * @method self textUppercase()
  * @method self textCapitalize()
+ * @method self textPrimary()
+ * @method self textSecondary()
+ * @method self textSuccess()
+ * @method self textDanger()
+ * @method self textWarning()
+ * @method self textInfo()
+ * @method self textLight()
+ * @method self textDark()
+ * @method self textMuted()
+ * @method self textWhite()
  */
 abstract class AbstractHelper extends AbstractHtmlElement
 {

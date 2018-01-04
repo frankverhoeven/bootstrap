@@ -6,6 +6,11 @@ use DateTime;
 use FrankVerhoeven\Bootstrap\View\Helper\Alert\Alert;
 use FrankVerhoeven\Bootstrap\View\Helper\Alert\AlertDismissible;
 use FrankVerhoeven\Bootstrap\View\Helper\Button\Button;
+use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonAnchor;
+use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonAnchorLarge;
+use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonAnchorSmall;
+use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonLarge;
+use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonSmall;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlList;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListInline;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListOrdered;
@@ -121,7 +126,12 @@ use Zend\View\Renderer\PhpRenderer as ZendPhpRenderer;
  *
  * @method Alert bootstrapAlert(string $content, array $attributes = null)
  * @method AlertDismissible bootstrapDismissibleAlert(string $content, array $attributes = null)
- * @method Button bootstrapButton(string $content, array $attributes = null)
+ * @method Button bootstrapButton(string|ElementInterface $content, array $attributes = null)
+ * @method ButtonSmall bootstrapButtonSmall(string|ElementInterface $content, array $attributes = null)
+ * @method ButtonLarge bootstrapButtonLarge(string|ElementInterface $content, array $attributes = null)
+ * @method ButtonAnchor bootstrapButtonAnchor(string|ElementInterface $content, array $attributes = null)
+ * @method ButtonAnchorSmall bootstrapButtonAnchorSmall(string|ElementInterface $content, array $attributes = null)
+ * @method ButtonAnchorLarge bootstrapButtonAnchorLarge(string|ElementInterface $content, array $attributes = null)
  * @method HtmlList bootstrapList(array $items, array $attributes = null, bool $escape = false)
  * @method HtmlListInline bootstrapListInline(array $items, array $attributes = null, bool $escape = false)
  * @method HtmlListOrdered bootstrapListOrdered(array $items, array $attributes = null, bool $escape = false)

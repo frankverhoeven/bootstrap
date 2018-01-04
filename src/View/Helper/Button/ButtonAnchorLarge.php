@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace FrankVerhoeven\Bootstrap\View\Helper\Button;
 
 /**
- * ButtonSmall
+ * ButtonAnchorLarge
  *
  * @author Frank Verhoeven <hi@frankverhoeven.me>
  */
-class ButtonSmall extends Button
+class ButtonAnchorLarge extends Button
 {
     /**
      * @return self
@@ -18,7 +18,8 @@ class ButtonSmall extends Button
     {
         parent::__reset();
 
-        $this->size = 'small';
+        $this->tag = 'anchor';
+        $this->size = 'large';
         return $this;
     }
 }

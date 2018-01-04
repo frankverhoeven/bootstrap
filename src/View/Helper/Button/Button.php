@@ -28,7 +28,7 @@ use Zend\Form\ElementInterface;
  * @method self normal()
  * @method self large()
  *
- * @method self a()
+ * @method self anchor()
  * @method self input()
  *
  * @method self submit()
@@ -41,6 +41,7 @@ use Zend\Form\ElementInterface;
  */
 class Button extends AbstractHelper
 {
+    const SIZE = 'small';
     /**
      * Button content
      * @var string
@@ -98,7 +99,7 @@ class Button extends AbstractHelper
     protected $tagMap = [
         'button',
         'input',
-        'a',
+        'anchor',
     ];
 
     /**
@@ -157,6 +158,8 @@ class Button extends AbstractHelper
      */
     public function __invoke($content, array $attributes = null): Button
     {
+        $this->__reset();
+
         if (is_string($content)) {
             $this->content = $content;
         } else if ($content instanceof ElementInterface) {
@@ -169,6 +172,27 @@ class Button extends AbstractHelper
         if (null !== $attributes) {
             $this->attributes = array_merge($this->attributes, $attributes);
         }
+
+        return $this;
+    }
+
+    /**
+     * Reset button to defaults
+     *
+     * @return self
+     */
+    protected function __reset(): Button
+    {
+        $this->attributes = [];
+        $this->content = '';
+        $this->color = 'primary';
+        $this->size = 'normal';
+        $this->tag = 'button';
+        $this->uri = '';
+        $this->outline = false;
+        $this->block = false;
+        $this->active = false;
+        $this->disabled = false;
 
         return $this;
     }
@@ -214,7 +238,7 @@ class Button extends AbstractHelper
             $this->attributes['disabled'] = 'disabled';
         }
 
-        if ('a' != $this->tag) {
+        if ('anchor' != $this->tag) {
             $this->attributes['type'] = $this->type;
         } else {
             $this->attributes['role'] = 'button';
@@ -225,12 +249,17 @@ class Button extends AbstractHelper
             $this->attributes['value'] = $this->content;
         }
 
-        $btn = '<' . $this->tag . $this->htmlAttribs($this->attributes);
+        $tag = $this->tag;
+        if ('anchor' == $tag) {
+            $tag = 'a';
+        }
 
-        if ('input' == $this->tag) {
+        $btn = '<' . $tag . $this->htmlAttribs($this->attributes);
+
+        if ('input' == $tag) {
             $btn .= $this->getClosingBracket();
         } else {
-            $btn .= '>' . $this->content . '</' . $this->tag . '>';
+            $btn .= '>' . $this->content . '</' . $tag . '>';
         }
 
         return $btn;
@@ -339,7 +368,7 @@ class Button extends AbstractHelper
             $this->size = $name;
             return $this;
         }
-        if (in_array($name, ['a', 'input'])) {
+        if (in_array($name, ['anchor', 'input'])) {
             $this->tag = $name;
             return $this;
         }

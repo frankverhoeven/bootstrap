@@ -12,8 +12,13 @@ namespace FrankVerhoeven\Bootstrap\View\Helper\Button;
 class ButtonLarge extends Button
 {
     /**
-     * Current size
-     * @var string
+     * @return self
      */
-    protected $size = 'large';
+    protected function __reset(): Button
+    {
+        parent::__reset();
+
+        $this->size = 'large';
+        return $this;
+    }
 }

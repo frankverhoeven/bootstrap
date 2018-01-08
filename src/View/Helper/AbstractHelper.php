@@ -526,21 +526,20 @@ abstract class AbstractHelper extends AbstractHtmlElement
         if (empty($class)) {
             return $this;
         }
-
         if (!isset($this->attributes['class'])) {
-            $this->attributes['class'] = $class;
-        } else {
-            $classesToAdd = explode(' ', $class);
-            $currentClasses = explode(' ', $this->attributes['class']);
-
-            foreach ($classesToAdd as $class) {
-                if (!in_array($class, $currentClasses)) {
-                    $currentClasses[] = $class;
-                }
-            }
-
-            $this->attributes['class'] = implode(' ', $currentClasses);
+            $this->attributes['class'] = '';
         }
+
+        $classesToAdd = array_unique(explode(' ', $class));
+        $currentClasses = explode(' ', $this->attributes['class']);
+
+        foreach ($classesToAdd as $class) {
+            if (!in_array($class, $currentClasses)) {
+                $currentClasses[] = $class;
+            }
+        }
+
+        $this->attributes['class'] = trim(implode(' ', $currentClasses));
 
         return $this;
     }

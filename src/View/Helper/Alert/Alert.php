@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace FrankVerhoeven\Bootstrap\View\Helper\Alert;
@@ -71,8 +70,10 @@ class Alert extends AbstractHelper
      * @param array|null $attribs Additional html attributes to add to the alert.
      * @return self
      */
-    public function __invoke(string $content, array $attribs = null): self
+    public function __invoke(string $content, array $attribs = null): AbstractHelper
     {
+        $this->reset();
+
         $this->content = $content;
         if (null !== $attribs) {
             $this->attributes = array_merge($this->attributes, $attribs);
@@ -179,6 +180,21 @@ class Alert extends AbstractHelper
 
             $this->color = $name;
         }
+
+        return $this;
+    }
+
+    /**
+     * Reset helper to defaults
+     *
+     * @return self
+     */
+    protected function reset(): AbstractHelper
+    {
+        $this->content = null;
+        $this->attributes = ['role' => 'alert'];
+        $this->dismissible = false;
+        $this->color = 'primary';
 
         return $this;
     }

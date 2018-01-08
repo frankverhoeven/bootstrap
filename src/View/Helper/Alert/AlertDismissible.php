@@ -1,8 +1,9 @@
 <?php
-
 declare(strict_types=1);
 
 namespace FrankVerhoeven\Bootstrap\View\Helper\Alert;
+
+use FrankVerhoeven\Bootstrap\View\Helper\AbstractHelper;
 
 /**
  * AlertDismissible
@@ -16,4 +17,15 @@ class AlertDismissible extends Alert
      * @var bool
      */
     protected $dismissible = true;
+
+    /**
+     * @return self
+     */
+    protected function reset(): AbstractHelper
+    {
+        parent::reset();
+        $this->dismissible = true;
+
+        return $this;
+    }
 }

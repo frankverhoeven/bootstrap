@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace FrankVerhoeven\Bootstrap\View\Helper;
@@ -500,6 +499,12 @@ abstract class AbstractHelper extends AbstractHtmlElement
     protected $attributes = [];
 
     /**
+     * Available utility methods
+     * @var array
+     */
+    protected static $availableUtilities;
+
+    /**
      * @return string
      */
     public function __toString(): string
@@ -530,7 +535,7 @@ abstract class AbstractHelper extends AbstractHtmlElement
             $this->attributes['class'] = '';
         }
 
-        $classesToAdd = array_unique(explode(' ', $class));
+        $classesToAdd = explode(' ', $class);
         $currentClasses = explode(' ', $this->attributes['class']);
 
         foreach ($classesToAdd as $class) {
@@ -540,7 +545,6 @@ abstract class AbstractHelper extends AbstractHtmlElement
         }
 
         $this->attributes['class'] = trim(implode(' ', $currentClasses));
-
         return $this;
     }
 
@@ -554,15 +558,10 @@ abstract class AbstractHelper extends AbstractHtmlElement
      */
     public function __call(string $name, array $arguments): AbstractHelper
     {
-        // @todo: MUST be pulled/injected from SM, currently destroys performance
-        $utilities = [
-            new Spacing(),
-            new Text(),
-            new Floating(),
-        ];
+        $this->setupUtilities();
 
         /* @var AbstractUtility $utility */
-        foreach ($utilities as $utility) {
+        foreach (self::$availableUtilities as $utility) {
             try {
                 $class = $utility->process($name);
                 $this->addCssClass($class);
@@ -571,5 +570,23 @@ abstract class AbstractHelper extends AbstractHtmlElement
         }
 
         throw new BadMethodCallException('Invalid method [' . $name . ']', 0, isset($e) ? $e : null);
+    }
+
+    /**
+     * Setup available utilities
+     *
+     * @return self
+     */
+    protected function setupUtilities(): AbstractHelper
+    {
+        if (null === self::$availableUtilities) {
+            self::$availableUtilities = [
+                new Spacing(),
+                new Text(),
+                new Floating(),
+            ];
+        }
+
+        return $this;
     }
 }

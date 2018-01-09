@@ -125,7 +125,7 @@ use Zend\View\Renderer\PhpRenderer as ZendPhpRenderer;
  * @method string|FormWeek formWeek(ElementInterface $element = null)
  *
  * @method Alert bootstrapAlert(string $content, array $attributes = null)
- * @method AlertDismissible bootstrapDismissibleAlert(string $content, array $attributes = null)
+ * @method AlertDismissible bootstrapAlertDismissible(string $content, array $attributes = null)
  * @method Button bootstrapButton(string|ElementInterface $content, array $attributes = null)
  * @method ButtonSmall bootstrapButtonSmall(string|ElementInterface $content, array $attributes = null)
  * @method ButtonLarge bootstrapButtonLarge(string|ElementInterface $content, array $attributes = null)

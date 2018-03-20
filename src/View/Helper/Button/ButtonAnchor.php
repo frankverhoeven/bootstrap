@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace FrankVerhoeven\Bootstrap\View\Helper\Button;
 
+use FrankVerhoeven\Bootstrap\Button\Tag;
+
 /**
  * ButtonAnchor
  *
@@ -18,7 +20,7 @@ class ButtonAnchor extends Button
     {
         parent::__reset();
 
-        $this->tag = 'anchor';
+        $this->tag = Tag::anchor();
         return $this;
     }
 }

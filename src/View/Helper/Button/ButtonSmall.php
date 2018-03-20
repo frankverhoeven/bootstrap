@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace FrankVerhoeven\Bootstrap\View\Helper\Button;
 
+use FrankVerhoeven\Bootstrap\Button\Size;
+
 /**
  * ButtonSmall
  *
@@ -18,7 +20,7 @@ class ButtonSmall extends Button
     {
         parent::__reset();
 
-        $this->size = 'small';
+        $this->size = Size::small();
         return $this;
     }
 }

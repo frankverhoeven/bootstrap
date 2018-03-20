@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace FrankVerhoeven\Bootstrap\View\Helper\Button;
 
+use FrankVerhoeven\Bootstrap\Button\Size;
+
 /**
  * ButtonLarge
  *
@@ -18,7 +20,7 @@ class ButtonLarge extends Button
     {
         parent::__reset();
 
-        $this->size = 'large';
+        $this->size = Size::large();
         return $this;
     }
 }

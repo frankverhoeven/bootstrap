@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace FrankVerhoeven\Bootstrap\View\Helper\Button;
 
 use BadMethodCallException;
+use FrankVerhoeven\Bootstrap\Button\Color;
+use FrankVerhoeven\Bootstrap\Button\Size;
+use FrankVerhoeven\Bootstrap\Button\Tag;
+use FrankVerhoeven\Bootstrap\Button\Type;
 use FrankVerhoeven\Bootstrap\View\Helper\AbstractHelper;
 use InvalidArgumentException;
 use Zend\Form\ElementInterface;
@@ -48,74 +52,21 @@ class Button extends AbstractHelper
     protected $content;
 
     /**
-     * Current color
-     * @var string
+     * @var Color
      */
-    protected $color = 'primary';
-
+    protected $color;
     /**
-     * Out of the box colors
-     * @var array
+     * @var Size
      */
-    protected $colorMap = [
-        'primary',
-        'secondary',
-        'success',
-        'danger',
-        'warning',
-        'info',
-        'light',
-        'dark',
-        'link',
-    ];
-
+    protected $size;
     /**
-     * Current size
-     * @var string
+     * @var Tag
      */
-    protected $size = 'normal';
-
+    protected $tag;
     /**
-     * Out of the box sizes
-     * @var array
+     * @var Type
      */
-    protected $sizeMap = [
-        'small',
-        'normal',
-        'large',
-    ];
-
-    /**
-     * Current tag
-     * @var string
-     */
-    protected $tag = 'button';
-
-    /**
-     * Available tags
-     * @var array
-     */
-    protected $tagMap = [
-        'button',
-        'input',
-        'anchor',
-    ];
-
-    /**
-     * Current type
-     * @var string
-     */
-    protected $type = 'submit';
-
-    /**
-     * Available types
-     * @var array
-     */
-    protected $typeMap = [
-        'button',
-        'submit',
-        'reset',
-    ];
+    protected $type;
 
     /**
      * URI for <a href> tag
@@ -184,9 +135,10 @@ class Button extends AbstractHelper
     {
         $this->attributes = [];
         $this->content = '';
-        $this->color = 'primary';
-        $this->size = 'normal';
-        $this->tag = 'button';
+        $this->color = Color::primary();
+        $this->size = Size::normal();
+        $this->tag = Tag::button();
+        $this->type = Type::button();
         $this->uri = '';
         $this->outline = false;
         $this->block = false;
@@ -200,28 +152,13 @@ class Button extends AbstractHelper
     {
         $this->addCssClass('btn');
 
-        $color = $this->color;
-        if ($this->isStandardColor($color)) {
-            if ($this->outline) {
-                $this->addCssClass('btn-outline-' . $color);
-            } else {
-                $this->addCssClass('btn-' . $color);
-            }
+        if ($this->outline) {
+            $this->addCssClass('btn-outline-' . $this->color->getColor());
         } else {
-            $this->addCssClass($color);
+            $this->addCssClass('btn-' . $this->color->getColor());
         }
 
-        $size = $this->size;
-        if ($this->isStandardSize($size)) {
-            if ('small' == $size) {
-                $size = 'btn-sm';
-            } else if ('large' == $size) {
-                $size = 'btn-lg';
-            } else {
-                $size = '';
-            }
-        }
-        $this->addCssClass($size);
+        $this->addCssClass($this->size->getSize());
 
         if ($this->block) {
             $this->addCssClass('btn-block');
@@ -237,48 +174,32 @@ class Button extends AbstractHelper
             $this->attributes['disabled'] = 'disabled';
         }
 
-        if ('anchor' != $this->tag) {
-            $this->attributes['type'] = $this->type;
+        if (!$this->tag->isAnchor()) {
+            $this->attributes['type'] = $this->type->getType();
         } else {
             $this->attributes['role'] = 'button';
             $this->attributes['href'] = empty($this->uri) ? '#' : $this->uri; // @todo: throw exception?
         }
 
-        if ('input' == $this->tag) {
+        if ($this->tag->isInput()) {
             $this->attributes['value'] = $this->content;
         }
 
-        $tag = $this->tag;
-        if ('anchor' == $tag) {
-            $tag = 'a';
-        }
+        $btn = '<' . $this->tag->getTag() . $this->htmlAttribs($this->attributes);
 
-        $btn = '<' . $tag . $this->htmlAttribs($this->attributes);
-
-        if ('input' == $tag) {
+        if ($this->tag->isInput()) {
             $btn .= $this->getClosingBracket();
         } else {
-            $btn .= '>' . $this->content . '</' . $tag . '>';
+            $btn .= '>' . $this->content . '</' . $this->tag->getTag() . '>';
         }
 
         return $btn;
     }
 
     /**
-     * Whether the provided color is a standard color.
-     *
-     * @param string $color
-     * @return bool
+     * @return Color
      */
-    public function isStandardColor(string $color): bool
-    {
-        return in_array($color, $this->colorMap);
-    }
-
-    /**
-     * @return string
-     */
-    public function getColor(): string
+    public function getColor(): Color
     {
         return $this->color;
     }
@@ -286,30 +207,19 @@ class Button extends AbstractHelper
     /**
      * Setter to allow custom colors
      *
-     * @param string $color
+     * @param Color $color
      * @return self
      */
-    public function setColor(string $color): Button
+    public function setColor(Color $color): Button
     {
         $this->color = $color;
         return $this;
     }
 
     /**
-     * Whether the provided size is a standard size.
-     *
-     * @param string $size
-     * @return bool
+     * @return Size
      */
-    public function isStandardSize(string $size): bool
-    {
-        return in_array($size, $this->sizeMap);
-    }
-
-    /**
-     * @return string
-     */
-    public function getSize(): string
+    public function getSize(): Size
     {
         return $this->size;
     }
@@ -317,10 +227,10 @@ class Button extends AbstractHelper
     /**
      * Setter to allow custom sizes
      *
-     * @param string $size
+     * @param Size $size
      * @return self
      */
-    public function setSize(string $size): Button
+    public function setSize(Size $size): Button
     {
         $this->size = $size;
         return $this;
@@ -359,23 +269,45 @@ class Button extends AbstractHelper
             return $this;
         } catch (BadMethodCallException $e) {}
 
-        if (in_array($name, $this->colorMap)) {
-            $this->color = $name;
-            return $this;
-        }
-        if (in_array($name, $this->sizeMap)) {
-            $this->size = $name;
-            return $this;
-        }
-        if (in_array($name, ['anchor', 'input'])) {
-            $this->tag = $name;
-            return $this;
-        }
-        if (in_array($name, ['submit', 'reset'])) {
-            $this->type = $name;
-            return $this;
-        }
-        if (in_array($name, ['outline', 'block', 'active', 'disabled'])) {
+        if (\in_array($name, [ // @todo refactor
+            'primary',
+            'secondary',
+            'success',
+            'danger',
+            'warning',
+            'info',
+            'light',
+            'dark',
+            'link',
+            'small',
+            'normal',
+            'large',
+            'input',
+            'anchor',
+            'submit',
+            'reset',
+            'outline',
+            'block',
+            'active',
+            'disabled'
+        ])) {
+            if (\is_callable([Color::class, $name])) {
+                $this->color = Color::$name();
+                return $this;
+            }
+            if (\is_callable([Size::class, $name])) {
+                $this->size = Size::$name();
+                return $this;
+            }
+            if (\is_callable([Tag::class, $name])) {
+                $this->tag = Tag::$name();
+                return $this;
+            }
+            if (\is_callable([Type::class, $name])) {
+                $this->type = Type::$name();
+                return $this;
+            }
+
             $this->$name = true;
             return $this;
         }

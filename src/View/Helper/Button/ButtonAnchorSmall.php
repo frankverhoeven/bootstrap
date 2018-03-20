@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace FrankVerhoeven\Bootstrap\View\Helper\Button;
 
+use FrankVerhoeven\Bootstrap\Button\Size;
+use FrankVerhoeven\Bootstrap\Button\Tag;
+
 /**
  * ButtonAnchorSmall
  *
@@ -18,8 +21,8 @@ class ButtonAnchorSmall extends Button
     {
         parent::__reset();
 
-        $this->tag = 'anchor';
-        $this->size = 'small';
+        $this->tag = Tag::anchor();
+        $this->size = Size::small();
         return $this;
     }
 }

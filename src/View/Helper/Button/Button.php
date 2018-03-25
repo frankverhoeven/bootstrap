@@ -138,7 +138,7 @@ class Button extends AbstractHelper
         $this->color = Color::primary();
         $this->size = Size::normal();
         $this->tag = Tag::button();
-        $this->type = Type::button();
+        $this->type = Type::submit();
         $this->uri = '';
         $this->outline = false;
         $this->block = false;

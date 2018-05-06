@@ -27,6 +27,16 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 class ConfigProvider
 {
     /**
+     * @return array
+     */
+    public function __invoke(): array
+    {
+        return [
+            'view_helpers' => $this->getViewHelperConfig(),
+        ];
+    }
+
+    /**
      * Return view helper configuration.
      *
      * @return array

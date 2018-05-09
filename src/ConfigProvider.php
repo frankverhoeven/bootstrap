@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace FrankVerhoeven\Bootstrap;
 
+use FrankVerhoeven\Bootstrap\Form\View\Helper\FormRow;
 use FrankVerhoeven\Bootstrap\View\Helper\Alert\Alert;
 use FrankVerhoeven\Bootstrap\View\Helper\Alert\AlertDismissible;
 use FrankVerhoeven\Bootstrap\View\Helper\Button\Button;
@@ -32,12 +33,13 @@ class ConfigProvider
     public function __invoke(): array
     {
         return [
+            'templates' => $this->getTemplates(),
             'view_helpers' => $this->getViewHelperConfig(),
         ];
     }
 
     /**
-     * Return view helper configuration.
+     * Return templates helper configuration.
      *
      * @return array
      */
@@ -73,6 +75,18 @@ class ConfigProvider
                 HtmlListOrdered::class => InvokableFactory::class,
                 HtmlListUnordered::class => InvokableFactory::class,
                 HtmlListUnstyled::class => InvokableFactory::class,
+            ],
+            'invokables' => [
+                'formRow' => FormRow::class,
+            ],
+        ];
+    }
+
+    public function getTemplates(): array
+    {
+        return [
+            'paths' => [
+                'bootstrap' => [__DIR__ . '/../templates/bootstrap'],
             ],
         ];
     }

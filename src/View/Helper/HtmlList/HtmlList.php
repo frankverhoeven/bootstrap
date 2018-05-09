@@ -59,7 +59,7 @@ class HtmlList extends AbstractHelper
     }
 
     /**
-     * Render the view helper.
+     * Render the templates helper.
      *
      * @return string
      */

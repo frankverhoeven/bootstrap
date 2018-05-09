@@ -68,7 +68,7 @@ use Zend\View\Renderer\PhpRenderer as ZendPhpRenderer;
 /**
  * PhpRenderer
  *
- * Allow code completion of view helpers.
+ * Allow code completion of templates helpers.
  *
  * @author Frank Verhoeven <hi@frankverhoeven.me>
  *

@@ -513,7 +513,7 @@ abstract class AbstractHelper extends AbstractHtmlElement
     }
 
     /**
-     * Render the view helper.
+     * Render the templates helper.
      *
      * @return string
      */

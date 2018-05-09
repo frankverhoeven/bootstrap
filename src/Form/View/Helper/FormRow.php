@@ -21,7 +21,7 @@ class FormRow extends ZendFormRow
     /**
      * @var string
      */
-    protected $partial = 'bootstrap::form::view::helper::form-row';
+    protected $partial = 'bootstrap::form/view/helper/form-row';
 
     /**
      * Utility form helper that renders a label (if it exists), an element and errors

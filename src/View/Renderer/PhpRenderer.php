@@ -11,11 +11,13 @@ use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonAnchorLarge;
 use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonAnchorSmall;
 use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonLarge;
 use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonSmall;
+use FrankVerhoeven\Bootstrap\View\Helper\Form\FormRowCustomCheckbox;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlList;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListInline;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListOrdered;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListUnordered;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListUnstyled;
+use FrankVerhoeven\Bootstrap\View\Helper\Navigation\NavbarNav;
 use IntlDateFormatter;
 use Zend\Form\ElementInterface;
 use Zend\Form\FormInterface;
@@ -132,6 +134,7 @@ use Zend\View\Renderer\PhpRenderer as ZendPhpRenderer;
  * @method ButtonAnchor bootstrapButtonAnchor(string|ElementInterface $content, array $attributes = null)
  * @method ButtonAnchorSmall bootstrapButtonAnchorSmall(string|ElementInterface $content, array $attributes = null)
  * @method ButtonAnchorLarge bootstrapButtonAnchorLarge(string|ElementInterface $content, array $attributes = null)
+ * @method string|FormRowCustomCheckbox bootstrapFormRowCustomCheckbox(ElementInterface $element = null)
  * @method HtmlList bootstrapList(array $items, array $attributes = null, bool $escape = false)
  * @method HtmlListInline bootstrapListInline(array $items, array $attributes = null, bool $escape = false)
  * @method HtmlListOrdered bootstrapListOrdered(array $items, array $attributes = null, bool $escape = false)

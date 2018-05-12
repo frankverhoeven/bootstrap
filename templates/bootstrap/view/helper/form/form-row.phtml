@@ -1,0 +1,24 @@
+<?php
+
+/* @var $element \Zend\Form\ElementInterface */
+$element = $this->element;
+
+/* @var string $label */
+$label = $this->label;
+
+/* @var array $labelAttributes */
+$labelAttributes = $this->labelAttributes;
+
+/* @var string $labelPosition (prepend, append) */
+$labelPosition = $this->labelPosition;
+
+/* @var boolean $renderErrors */
+$renderErrors = $this->renderErrors;
+
+
+?>
+<div class="form-group<?php if (strstr($element->getAttribute('class'), 'hidden')) echo ' hidden'; ?>">
+    <?php if ($label) echo $this->formLabel($element); ?>
+    <?= $this->formElement($element); ?>
+    <?= $this->formElementErrors($element); ?>
+</div>

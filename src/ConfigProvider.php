@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace FrankVerhoeven\Bootstrap;
 
-use FrankVerhoeven\Bootstrap\Form\View\Helper\FormRow;
 use FrankVerhoeven\Bootstrap\View\Helper\Alert\Alert;
 use FrankVerhoeven\Bootstrap\View\Helper\Alert\AlertDismissible;
 use FrankVerhoeven\Bootstrap\View\Helper\Button\Button;
@@ -13,11 +12,14 @@ use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonAnchorLarge;
 use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonAnchorSmall;
 use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonLarge;
 use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonSmall;
+use FrankVerhoeven\Bootstrap\View\Helper\Form\FormRow;
+use FrankVerhoeven\Bootstrap\View\Helper\Form\FormRowCustomCheckbox;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlList;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListInline;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListOrdered;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListUnordered;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListUnstyled;
+use FrankVerhoeven\Bootstrap\View\Helper\Navigation\NavbarNav;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 /**
@@ -60,6 +62,7 @@ class ConfigProvider
                 'bootstrapListOrdered' => HtmlListOrdered::class,
                 'bootstrapListUnordered' => HtmlListUnordered::class,
                 'bootstrapListUnstyled' => HtmlListUnstyled::class,
+                'bootstrapNavbarNav' => NavbarNav::class,
             ],
             'factories' => [
                 Alert::class => InvokableFactory::class,
@@ -78,6 +81,7 @@ class ConfigProvider
             ],
             'invokables' => [
                 'formRow' => FormRow::class,
+                'bootstrapFormRowCustomCheckbox' => FormRowCustomCheckbox::class,
             ],
         ];
     }

@@ -17,8 +17,9 @@ $renderErrors = $this->renderErrors;
 
 
 ?>
-<div class="form-group<?php if (strstr($element->getAttribute('class'), 'hidden')) echo ' hidden'; ?>">
-    <?php if ($label) echo $this->formLabel($element); ?>
-    <?php echo $this->formElement($element); ?>
-    <?php echo $this->formElementErrors($element); ?>
+<div class="custom-control custom-checkbox">
+    <?= $this->formElement($element); ?>
+    <label class="custom-control-label pt-1" for="remember">
+        <?php if ($label) echo $this->formLabel($element); ?>
+    </label>
 </div>

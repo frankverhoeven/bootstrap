@@ -16,17 +16,17 @@ class Table extends AbstractHelper
     /**
      * @var bool
      */
-    private $bordered;
+    private $bordered = false;
 
     /**
      * @var bool
      */
-    private $dark;
+    private $dark = false;
 
     /**
      * @var bool
      */
-    private $hoverable;
+    private $hoverable = false;
 
     /**
      * @var TableRow[]
@@ -36,12 +36,12 @@ class Table extends AbstractHelper
     /**
      * @var bool
      */
-    private $small;
+    private $small = false;
 
     /**
      * @var bool
      */
-    private $striped;
+    private $striped = false;
 
     /**
      * @param TableRow[] $rows

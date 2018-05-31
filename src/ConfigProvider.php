@@ -90,7 +90,7 @@ class ConfigProvider
             ],
             'invokables' => [
                 'formRow' => FormRow::class,
-                'bootstrapFormRowCustomCheckbox' => FormRowCustomCheckbox::class,
+                'bsFormRowCustomCheckbox' => FormRowCustomCheckbox::class,
             ],
         ];
     }

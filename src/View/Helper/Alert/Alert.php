@@ -79,7 +79,7 @@ class Alert extends AbstractHelper
             $this->attributes = array_merge($this->attributes, $attribs);
         }
 
-        return $this;
+        return clone $this;
     }
 
     /**

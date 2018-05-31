@@ -55,7 +55,7 @@ class HtmlList extends AbstractHelper
             $this->attributes = array_merge($this->attributes, $attributes);
         }
 
-        return $this;
+        return clone $this;
     }
 
     /**

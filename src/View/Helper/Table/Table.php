@@ -55,7 +55,7 @@ class Table extends AbstractHelper
 
         $this->addCssClass('table');
 
-        return $this;
+        return clone $this;
     }
 
     /**

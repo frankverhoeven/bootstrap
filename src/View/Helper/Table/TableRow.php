@@ -30,7 +30,7 @@ class TableRow extends AbstractHelper
         $this->attributes = $attributes;
         $this->escape = $escape;
 
-        return $this;
+        return clone $this;
     }
 
     /**

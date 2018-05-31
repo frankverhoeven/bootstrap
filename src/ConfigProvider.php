@@ -20,6 +20,9 @@ use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListOrdered;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListUnordered;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListUnstyled;
 use FrankVerhoeven\Bootstrap\View\Helper\Navigation\NavbarNav;
+use FrankVerhoeven\Bootstrap\View\Helper\Table\Table;
+use FrankVerhoeven\Bootstrap\View\Helper\Table\TableRow;
+use FrankVerhoeven\Bootstrap\View\Helper\Table\TableRowHead;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 /**
@@ -49,20 +52,23 @@ class ConfigProvider
     {
         return [
             'aliases' => [
-                'bootstrapAlert' => Alert::class,
-                'bootstrapAlertDismissible' => AlertDismissible::class,
-                'bootstrapButton' => Button::class,
-                'bootstrapButtonSmall' => ButtonSmall::class,
-                'bootstrapButtonLarge' => ButtonLarge::class,
-                'bootstrapButtonAnchor' => ButtonAnchor::class,
-                'bootstrapButtonAnchorSmall' => ButtonAnchorSmall::class,
-                'bootstrapButtonAnchorLarge' => ButtonAnchorLarge::class,
-                'bootstrapList' => HtmlList::class,
-                'bootstrapListInline' => HtmlListInline::class,
-                'bootstrapListOrdered' => HtmlListOrdered::class,
-                'bootstrapListUnordered' => HtmlListUnordered::class,
-                'bootstrapListUnstyled' => HtmlListUnstyled::class,
-                'bootstrapNavbarNav' => NavbarNav::class,
+                'bsAlert' => Alert::class,
+                'bsAlertDismissible' => AlertDismissible::class,
+                'bsButton' => Button::class,
+                'bsButtonSmall' => ButtonSmall::class,
+                'bsButtonLarge' => ButtonLarge::class,
+                'bsButtonAnchor' => ButtonAnchor::class,
+                'bsButtonAnchorSmall' => ButtonAnchorSmall::class,
+                'bsButtonAnchorLarge' => ButtonAnchorLarge::class,
+                'bsList' => HtmlList::class,
+                'bsListInline' => HtmlListInline::class,
+                'bsListOrdered' => HtmlListOrdered::class,
+                'bsListUnordered' => HtmlListUnordered::class,
+                'bsListUnstyled' => HtmlListUnstyled::class,
+                'bsNavbarNav' => NavbarNav::class,
+                'bsTable' => Table::class,
+                'bsTableRow' => TableRow::class,
+                'bsTableRowHead' => TableRowHead::class,
             ],
             'factories' => [
                 Alert::class => InvokableFactory::class,
@@ -78,6 +84,9 @@ class ConfigProvider
                 HtmlListOrdered::class => InvokableFactory::class,
                 HtmlListUnordered::class => InvokableFactory::class,
                 HtmlListUnstyled::class => InvokableFactory::class,
+                Table::class => InvokableFactory::class,
+                TableRow::class => InvokableFactory::class,
+                TableRowHead::class => InvokableFactory::class,
             ],
             'invokables' => [
                 'formRow' => FormRow::class,

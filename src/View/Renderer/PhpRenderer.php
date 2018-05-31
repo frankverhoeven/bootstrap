@@ -18,6 +18,9 @@ use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListOrdered;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListUnordered;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListUnstyled;
 use FrankVerhoeven\Bootstrap\View\Helper\Navigation\NavbarNav;
+use FrankVerhoeven\Bootstrap\View\Helper\Table\Table;
+use FrankVerhoeven\Bootstrap\View\Helper\Table\TableRow;
+use FrankVerhoeven\Bootstrap\View\Helper\Table\TableRowHead;
 use IntlDateFormatter;
 use Zend\Form\ElementInterface;
 use Zend\Form\FormInterface;
@@ -126,20 +129,23 @@ use Zend\View\Renderer\PhpRenderer as ZendPhpRenderer;
  * @method string|FormUrl formUrl(ElementInterface $element = null)
  * @method string|FormWeek formWeek(ElementInterface $element = null)
  *
- * @method Alert bootstrapAlert(string $content, array $attributes = null)
- * @method AlertDismissible bootstrapAlertDismissible(string $content, array $attributes = null)
- * @method Button bootstrapButton(string|ElementInterface $content, array $attributes = null)
- * @method ButtonSmall bootstrapButtonSmall(string|ElementInterface $content, array $attributes = null)
- * @method ButtonLarge bootstrapButtonLarge(string|ElementInterface $content, array $attributes = null)
- * @method ButtonAnchor bootstrapButtonAnchor(string|ElementInterface $content, array $attributes = null)
- * @method ButtonAnchorSmall bootstrapButtonAnchorSmall(string|ElementInterface $content, array $attributes = null)
- * @method ButtonAnchorLarge bootstrapButtonAnchorLarge(string|ElementInterface $content, array $attributes = null)
- * @method string|FormRowCustomCheckbox bootstrapFormRowCustomCheckbox(ElementInterface $element = null)
- * @method HtmlList bootstrapList(array $items, array $attributes = null, bool $escape = false)
- * @method HtmlListInline bootstrapListInline(array $items, array $attributes = null, bool $escape = false)
- * @method HtmlListOrdered bootstrapListOrdered(array $items, array $attributes = null, bool $escape = false)
- * @method HtmlListUnordered bootstrapListUnordered(array $items, array $attributes = null, bool $escape = false)
- * @method HtmlListUnstyled bootstrapListUnstyled(array $items, array $attributes = null, bool $escape = false)
+ * @method Alert bsAlert(string $content, array $attributes = null)
+ * @method AlertDismissible bsAlertDismissible(string $content, array $attributes = null)
+ * @method Button bsButton(string|ElementInterface $content, array $attributes = null)
+ * @method ButtonSmall bsButtonSmall(string|ElementInterface $content, array $attributes = null)
+ * @method ButtonLarge bsButtonLarge(string|ElementInterface $content, array $attributes = null)
+ * @method ButtonAnchor bsButtonAnchor(string|ElementInterface $content, array $attributes = null)
+ * @method ButtonAnchorSmall bsButtonAnchorSmall(string|ElementInterface $content, array $attributes = null)
+ * @method ButtonAnchorLarge bsButtonAnchorLarge(string|ElementInterface $content, array $attributes = null)
+ * @method string|FormRowCustomCheckbox bsFormRowCustomCheckbox(ElementInterface $element = null)
+ * @method HtmlList bsList(array $items, array $attributes = null, bool $escape = false)
+ * @method HtmlListInline bsListInline(array $items, array $attributes = null, bool $escape = false)
+ * @method HtmlListOrdered bsListOrdered(array $items, array $attributes = null, bool $escape = false)
+ * @method HtmlListUnordered bsListUnordered(array $items, array $attributes = null, bool $escape = false)
+ * @method HtmlListUnstyled bsListUnstyled(array $items, array $attributes = null, bool $escape = false)
+ * @method Table bsTable(array $rows, array $attributes = null)
+ * @method TableRow bsTableRow(array $cells, array $attributes = null, bool $escape = false)
+ * @method TableRowHead bsTableRowHead(array $cells, array $attributes = null, bool $escape = false)
  */
 class PhpRenderer extends ZendPhpRenderer
 {}

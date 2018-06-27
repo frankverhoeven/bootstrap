@@ -19,7 +19,7 @@ $renderErrors = $this->renderErrors;
 ?>
 <div class="custom-control custom-checkbox">
     <?= $this->formElement($element); ?>
-    <label class="custom-control-label" for="remember">
+    <label class="custom-control-label" for="<?= $element->getName(); ?>">
         <?php if ($label) echo $this->formLabel($element); ?>
     </label>
 </div>

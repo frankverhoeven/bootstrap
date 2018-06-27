@@ -1,6 +1,6 @@
 <?php
 
-namespace FrankVerhoeven\Bootstrap\Renderer;
+namespace FrankVerhoeven\Bootstrap\View\Renderer;
 
 use DateTime;
 use FrankVerhoeven\Bootstrap\View\Helper\Alert\Alert;
@@ -17,7 +17,6 @@ use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListInline;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListOrdered;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListUnordered;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListUnstyled;
-use FrankVerhoeven\Bootstrap\View\Helper\Navigation\NavbarNav;
 use FrankVerhoeven\Bootstrap\View\Helper\Table\Table;
 use FrankVerhoeven\Bootstrap\View\Helper\Table\TableRow;
 use FrankVerhoeven\Bootstrap\View\Helper\Table\TableRowHead;

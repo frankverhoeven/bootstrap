@@ -1,6 +1,6 @@
 <?php
 
-/* @var $this \FrankVerhoeven\Bootstrap\Renderer\PhpRenderer */
+/* @var $this \FrankVerhoeven\Bootstrap\View\Renderer\PhpRenderer */
 
 /* @var $element \Zend\Form\ElementInterface */
 $element = $this->element;
@@ -19,8 +19,6 @@ $renderErrors = $this->renderErrors;
 
 ?>
 <div class="custom-file<?php if (\strstr($element->getAttribute('class'), 'hidden')) echo ' hidden'; ?>">
-    <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
     <?= $this->formElement($element); ?>
     <?php if ($label) echo $this->formLabel($element); ?>
     <?= $this->formElementErrors($element); ?>

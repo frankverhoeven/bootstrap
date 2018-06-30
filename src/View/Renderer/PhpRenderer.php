@@ -12,6 +12,8 @@ use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonAnchorSmall;
 use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonLarge;
 use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonSmall;
 use FrankVerhoeven\Bootstrap\View\Helper\Form\FormRowCustomCheckbox;
+use FrankVerhoeven\Bootstrap\View\Helper\Form\FormRowCustomFileInput;
+use FrankVerhoeven\Bootstrap\View\Helper\Form\FormRowCustomSelect;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlList;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListInline;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListOrdered;
@@ -137,6 +139,8 @@ use Zend\View\Renderer\PhpRenderer as ZendPhpRenderer;
  * @method ButtonAnchorSmall bsButtonAnchorSmall(string|ElementInterface $content, array $attributes = null)
  * @method ButtonAnchorLarge bsButtonAnchorLarge(string|ElementInterface $content, array $attributes = null)
  * @method string|FormRowCustomCheckbox bsFormRowCustomCheckbox(ElementInterface $element = null)
+ * @method string|FormRowCustomFileInput bsFormRowCustomFileInput(ElementInterface $element = null)
+ * @method string|FormRowCustomSelect bsFormRowCustomSelect(ElementInterface $element = null)
  * @method HtmlList bsList(array $items, array $attributes = null, bool $escape = false)
  * @method HtmlListInline bsListInline(array $items, array $attributes = null, bool $escape = false)
  * @method HtmlListOrdered bsListOrdered(array $items, array $attributes = null, bool $escape = false)

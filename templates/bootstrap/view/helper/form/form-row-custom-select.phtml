@@ -17,8 +17,9 @@ $labelPosition = $this->labelPosition;
 /* @var bool $renderErrors */
 $renderErrors = $this->renderErrors;
 
+
 ?>
-<div class="form-group<?php if (\strstr($element->getAttribute('class'), 'hidden')) echo ' hidden'; ?>">
+<div class="form-group form-group-custom-select<?php if (\strstr($element->getAttribute('class'), 'hidden')) echo ' hidden'; ?>">
     <?php if ($label) echo $this->formLabel($element); ?>
     <?= $this->formElement($element); ?>
     <?= $this->formElementErrors($element); ?>

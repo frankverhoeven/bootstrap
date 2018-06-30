@@ -14,6 +14,8 @@ use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonLarge;
 use FrankVerhoeven\Bootstrap\View\Helper\Button\ButtonSmall;
 use FrankVerhoeven\Bootstrap\View\Helper\Form\FormRow;
 use FrankVerhoeven\Bootstrap\View\Helper\Form\FormRowCustomCheckbox;
+use FrankVerhoeven\Bootstrap\View\Helper\Form\FormRowCustomFileInput;
+use FrankVerhoeven\Bootstrap\View\Helper\Form\FormRowCustomSelect;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlList;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListInline;
 use FrankVerhoeven\Bootstrap\View\Helper\HtmlList\HtmlListOrdered;
@@ -91,6 +93,8 @@ class ConfigProvider
             'invokables' => [
                 'formRow' => FormRow::class,
                 'bsFormRowCustomCheckbox' => FormRowCustomCheckbox::class,
+                'bsFormRowCustomFileInput' => FormRowCustomFileInput::class,
+                'bsFormRowCustomSelect' => FormRowCustomSelect::class,
             ],
         ];
     }
